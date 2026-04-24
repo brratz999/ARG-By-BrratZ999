@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM ACCESS - ARG</title>
+    <style>
+        /* Основной стиль страницы */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0d0d0d; /* Очень темный фон */
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+        }
+
+        /* Контейнер для кнопок */
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Общий стиль кнопок */
+        button {
+            padding: 30px 50px;
+            font-size: 22px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            outline: none;
+        }
+
+        /* Эффект при наведении */
+        button:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        /* Фиолетовая кнопка - Меганайты */
+        .btn-purple {
+            background-color: #8a2be2;
+            color: white;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        }
+
+        /* Розовая кнопка - Хоррор */
+        .btn-pink {
+            background-color: #ff69b4;
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Желтая кнопка - Миньоны */
+        .btn-yellow {
+            background-color: #ffd700;
+            color: #222;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Дополнительный эффект свечения текста */
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="btn-purple" onclick="checkPass('бревно', 'https://i.postimg.cc/Hxdmd0JS/zagruzeno-(29).png')">
+            Меганайты
+        </button>
+
+        <button class="btn-pink" onclick="checkPass('ёкай', 'https://i.postimg.cc/8FK9b6mW/27.png')">
+            Хоррор
+        </button>
+
+        <button class="btn-yellow" onclick="checkPass('стринги', 'https://i.postimg.cc/8FK9b6mW/27.png')">
+            Миньоны
+        </button>
+    </div>
+
+    <script>
+        /**
+         * Функция проверки пароля
+         * @param {string} correctPass - Правильный ответ
+         * @param {string} url - Куда перекинет при успехе
+         */
+        function checkPass(correctPass, url) {
+            // Вызываем окно ввода
+            let userPass = prompt("ВНИМАНИЕ: ТРЕБУЕТСЯ ПАРОЛЬ ДОСТУПА");
+
+            // Проверяем, нажал ли пользователь "Отмена"
+            if (userPass === null) return;
+
+            // Сравниваем ввод (убираем пробелы и переводим в нижний регистр)
+            if (userPass.toLowerCase().trim() === correctPass.toLowerCase()) {
+                alert("ДОСТУП РАЗРЕШЕН. ПЕРЕНАПРАВЛЕНИЕ...");
+                window.location.href = url;
+            } else {
+                alert("ОШИБКА: НЕВЕРНЫЙ ПАРОЛЬ. ДОСТУП ЗАБЛОКИРОВАН.");
+            }
+        }
+    </script>
+
+</body>
+</html>
